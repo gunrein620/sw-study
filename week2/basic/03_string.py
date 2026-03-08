@@ -24,6 +24,9 @@
 - 문자열을 뒤집어서 비교하거나, 양 끝에서 시작해 중앙으로 이동하며 비교하세요
 """
 
+from turtle import right
+
+
 def is_palindrome(s):
     """
     문자열이 회문인지 판별하는 함수
@@ -36,12 +39,39 @@ def is_palindrome(s):
     """
     # TODO: 알파벳과 숫자만 남기고 소문자로 변환하세요
     # 힌트: isalnum() 메서드와 lower() 메서드 사용
-    pass
+    filtered_string = [c.lower() for c in s if c.isalnum()]
+    '''
+    def is_palindrome(s):
+    # 1. 정제된 문자들을 담을 빈 리스트를 만듭니다.
+    filtered_chars = []
+    
+    # 2. 입력받은 문자열 s에서 문자를 하나씩 꺼내서 반복합니다.
+    for c in s:
+        # 3. 만약 그 문자가 알파벳이나 숫자라면 (isalnum)
+        if c.isalnum():
+            # 4. 그 문자를 소문자로 변환해서(lower()) 리스트에 추가합니다.
+            filtered_chars.append(c.lower())
+            
+    # 5. 이제 정제된 리스트(filtered_chars)와 
+    #    그 리스트를 뒤집은 것(filtered_chars[::-1])이 같은지 비교합니다.
+    return filtered_chars == filtered_chars[::-1]
+    '''    
     
     # TODO: 정제된 문자열이 회문인지 확인하세요
     # 방법1: 문자열을 뒤집어서 비교 ([::-1] 사용)
+    #return filtered_string == filtered_string[::-1]
+
     # 방법2: 양 끝 인덱스를 이용한 투 포인터 방식
-    pass
+    left = 0
+    right = len(filtered_string) -1
+
+    while left < right:
+        if filtered_string[left] != filtered_string[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
+
     
     #return False
 
