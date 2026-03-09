@@ -22,6 +22,9 @@
 - 현재 숫자보다 큰 숫자만 선택하여 중복 방지
 """
 
+from turtle import back
+
+
 def combinations(n, k):
     """
     1부터 n까지 숫자 중 k개를 선택하는 모든 조합 찾기
@@ -38,21 +41,24 @@ def combinations(n, k):
     def backtrack(start, current_combination):
         """
         백트랙킹 헬퍼 함수
-        
         Args:
             start: 탐색을 시작할 숫자
             current_combination: 현재까지 선택한 숫자들
         """
         # TODO: base case - k개를 모두 선택했으면 결과에 추가
-        pass
+        if len(current_combination) == k:
+            result.append(current_combination[:])
+            return
         
         # TODO: start부터 n까지 숫자를 하나씩 시도
         ## TODO: 백트랙킹 3단계 구현
         ## 1. 선택(Choose)
+        for num in range(start, n+1):
+            current_combination.append(num)
         ## 2. 탐색(Explore)
+            backtrack(num+1, current_combination)
         ## 3. 취소(Unchoose)
-        pass
-    
+            current_combination.pop()
     backtrack(1, [])
     return result
 
