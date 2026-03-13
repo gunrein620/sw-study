@@ -36,7 +36,7 @@ def combinations(n, k):
     Returns:
         모든 조합의 리스트
     """
-    result = []
+    result = [] #[(1,2)]
     
     def backtrack(start, current_combination):
         """
@@ -53,12 +53,12 @@ def combinations(n, k):
         # TODO: start부터 n까지 숫자를 하나씩 시도
         ## TODO: 백트랙킹 3단계 구현
         ## 1. 선택(Choose)
-        for num in range(start, n+1):
-            current_combination.append(num)
+        for num in range(start, n+1): # 2,1
+            current_combination.append(num)  # 2,[1,3]
         ## 2. 탐색(Explore)
-            backtrack(num+1, current_combination)
+            backtrack(num+1, current_combination) #  [12]   |   3[12]   
         ## 3. 취소(Unchoose)
-            current_combination.pop()
+            current_combination.pop() # 2 [1]  |  2[1,3] | 4[13]
     backtrack(1, [])
     return result
 
