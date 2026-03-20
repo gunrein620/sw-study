@@ -32,6 +32,9 @@
 - 순회 순서만 다름
 """
 
+from tkinter import NO
+
+
 class TreeNode:
     """이진 트리 노드"""
     def __init__(self, value):
@@ -44,17 +47,18 @@ def preorder(root):
     result = []
     
     # TODO: root가 None이면 빈 리스트 반환
-    pass
+    if root is None:
+        return result
     
     # TODO: 루트 값 추가
-    pass
+    result.append(root.value)
     
     # TODO: 왼쪽 서브트리 순회
-    pass
-    
+    result += preorder(root.left)
+     
     # TODO: 오른쪽 서브트리 순회
-    pass
-    
+    result += preorder(root.right)
+
     return result
 
 def inorder(root):
@@ -62,16 +66,17 @@ def inorder(root):
     result = []
     
     # TODO: root가 None이면 빈 리스트 반환
-    pass
+    if root is None:
+        return result
     
     # TODO: 왼쪽 서브트리 순회
-    pass
+    result += inorder(root.left)
     
     # TODO: 루트 값 추가
-    pass
+    result.append(root.value)
     
     # TODO: 오른쪽 서브트리 순회
-    pass
+    result += inorder(root.right)
     
     return result
 
@@ -80,16 +85,17 @@ def postorder(root):
     result = []
     
     # TODO: root가 None이면 빈 리스트 반환
-    pass
+    if root is None:
+        return result
     
     # TODO: 왼쪽 서브트리 순회
-    pass
+    result += postorder(root.left)
     
     # TODO: 오른쪽 서브트리 순회
-    pass
+    result += postorder(root.right)
     
     # TODO: 루트 값 추가
-    pass
+    result.append(root.value)
     
     return result
 
