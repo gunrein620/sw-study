@@ -61,7 +61,7 @@ def search_bst(root, target):
     if root.value == target:
         return True
     ## target이 작으면 왼쪽 서브트리에서 검색
-    elif root.value < target:
+    elif root.value > target:
         return search_bst(root.left, target)
     ## target이 크면 오른쪽 서브트리에서 검색
     else:
