@@ -1,5 +1,10 @@
-# 그래프, DFS, BFS - 바이러스 (백준 실버3)
-# 문제 링크: https://www.acmicpc.net/problem/2606
+#=====================================================================
+#   2606번:    바이러스                   
+#   @date:   2026-03-23              
+#   @link:   https://www.acmicpc.net/problem/2606  
+#   @Note:   폴더 내부에 있는 파일을 삭제하거나 변경하지 말아주세요.
+#   @Test:   코드를 작성 후 "BOJ: 테스트"통해서 테스트를 해보세요.
+#=====================================================================
 
 from collections import deque
 import sys;
@@ -30,3 +35,8 @@ while que:
       que.append(i)
       visited.append(i)
 print(len(visited)-1)
+
+
+
+
+
